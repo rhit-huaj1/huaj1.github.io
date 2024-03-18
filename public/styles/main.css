@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Tenor+Sans&display=swap');
+
+
+:root{
+    --vertical-space: 2rem;
+    --horizontal-space: 3rem;
+
+    --light-color: 247, 238, 221;
+    --body-color:#6D6D6D;
+    --heading-color:#008DD9;
+    --contrast-color:#41C9E2;
+}
+
+
+body{
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: "Tenor Sans", sans-serif;
+    background-image:radial-gradient(circle at 40% 91%, rgba(251, 251, 251,0.04) 0%, rgba(251, 251, 251,0.04) 50%,rgba(229, 229, 229,0.04) 50%, rgba(229, 229, 229,0.04) 100%),radial-gradient(circle at 66% 97%, rgba(36, 36, 36,0.04) 0%, rgba(36, 36, 36,0.04) 50%,rgba(46, 46, 46,0.04) 50%, rgba(46, 46, 46,0.04) 100%),radial-gradient(circle at 86% 7%, rgba(40, 40, 40,0.04) 0%, rgba(40, 40, 40,0.04) 50%,rgba(200, 200, 200,0.04) 50%, rgba(200, 200, 200,0.04) 100%),radial-gradient(circle at 15% 16%, rgba(99, 99, 99,0.04) 0%, rgba(99, 99, 99,0.04) 50%,rgba(45, 45, 45,0.04) 50%, rgba(45, 45, 45,0.04) 100%),radial-gradient(circle at 75% 99%, rgba(243, 243, 243,0.04) 0%, rgba(243, 243, 243,0.04) 50%,rgba(37, 37, 37,0.04) 50%, rgba(37, 37, 37,0.04) 100%),linear-gradient(90deg, rgb(34, 222, 237),rgb(135, 89, 215));
+    color: var(--body-color);
+}
+
+main{
+    background-color: rgba(var(--light-color),0.5);
+}
+
+header h1, nav, nav a{
+    color: var(--light-color) ;
+}
+
+
+h1, h2, h3{
+    line-height: 1.5;
+    font-family: 'Rye', cursive;
+    color: var(--heading-color);
+}
+a{
+    color: var(--body-color);
+    text-decoration-color: var(--contrast-color);
+}
+
+a:hover {
+    color: var(--contrast-color);
+    text-decoration-color: var(--body-color);
+}
+
+body#about img {
+        height: 15em;
+        display: inline;
+        float: left;
+        margin-right: var(--horizontal-space);
+    }
+    
+p{
+    max-width: 50em;
+}
+body{
+    display: grid;
+    grid-template-areas: "head head"
+                        "nav nav"
+                        "main" "main"
+                        "foot foot";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+@media screen and (min-width: 25em){
+    body{
+        grid-template-areas: "head head"
+                              "nav main"
+                              "foot foot";
+         grid-template-rows: auto 1fr auto;
+    }
+}
+body > * {
+    padding-left: var(--horizontal-space);
+    padding-right: var(--horizontal-space);
+}
+
+body > header{
+    grid-area: head;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body > nav {
+    padding: var(--vertical-space) 0 var(--vertical-space) var(--horizontal-space); /* Adjust padding */
+    grid-area: nav;
+}
+
+body > nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+}
+
+body > nav ul li {
+    margin-bottom: 1em; 
+}
+
+
+body > main{
+    grid-area: main;
+    
+}
+
+body > footer{
+    grid-area: foot;
+}
+
+header, footer {
+    padding-top: var(--vertical-space);
+    padding-bottom: var(--horizontal-space);
+}
+
+header h1, footer h1{
+    margin: 0;
+}
+
+body#portfolio ul#portfolioItems {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: var(--horizontal-space); 
+    list-style-type: none;
+    padding: 0;
+}
+
+@media screen and (min-width: 25em){
+    body#portfolio ul#portfolioItems li {
+    display: flex;
+    flex-direction: column;
+}
+}
+
+body#portfolio ul#portfolioItems li img {
+    max-width: 100%;
+}
